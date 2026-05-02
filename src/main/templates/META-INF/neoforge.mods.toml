@@ -42,11 +42,11 @@ displayName="${mod_name}" #mandatory
 #credits="" #optional
 
 # The authors of the mod, displayed in the mod UI (optional)
-#authors=""
+authors="pazooni"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Example mod description.
+A mod to add NPC entities to help players make their towns and cities feel more alive with a focus on performance.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
