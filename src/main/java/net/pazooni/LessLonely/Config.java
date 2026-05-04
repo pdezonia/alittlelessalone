@@ -1,4 +1,4 @@
-package net.pazooni.alittlelessalone;
+package net.pazooni.LessLonely;
 
 import java.util.List;
 

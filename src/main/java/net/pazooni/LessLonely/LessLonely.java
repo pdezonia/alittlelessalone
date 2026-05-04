@@ -1,5 +1,8 @@
-package net.pazooni.alittlelessalone;
+package net.pazooni.LessLonely;
 
+import net.pazooni.LessLonely.entity.ModEntities;
+import net.pazooni.LessLonely.item.ModCreativeModeTabs;
+import net.pazooni.LessLonely.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -15,16 +18,16 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(ALittleLessAlone.MOD_ID)
-public class ALittleLessAlone {
+@Mod(LessLonely.MOD_ID)
+public class LessLonely {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "alittlelessalone";
+    public static final String MOD_ID = "lesslonely";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public ALittleLessAlone(IEventBus modEventBus, ModContainer modContainer) {
+    public LessLonely(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -32,6 +35,13 @@ public class ALittleLessAlone {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        // The stuff bespoke to OUR mod
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

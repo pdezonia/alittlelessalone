@@ -9,5 +9,11 @@
   "examplemod.configuration.items": "Item List",
   "examplemod.configuration.logDirtBlock": "Log Dirt Block",
   "examplemod.configuration.magicNumberIntroduction": "Magic Number Text",
-  "examplemod.configuration.magicNumber": "Magic Number"
+  "examplemod.configuration.magicNumber": "Magic Number",
+
+  "item.lesslonely.simperson_spawn_egg": "Simperson Spawn Egg",
+
+  "creativetab.lesslonely.simpeople_items": "Simple People Items",
+
+  "entity.mccourse.simperson": "Simple Person"
 }
