@@ -1,5 +1,6 @@
 package net.pazooni.LessLonely;
 
+import net.pazooni.LessLonely.block.ModBlocks;
 import net.pazooni.LessLonely.entity.ModEntities;
 import net.pazooni.LessLonely.item.ModCreativeModeTabs;
 import net.pazooni.LessLonely.item.ModItems;
@@ -40,6 +41,7 @@ public class LessLonely {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         ModEntities.register(modEventBus);
 
