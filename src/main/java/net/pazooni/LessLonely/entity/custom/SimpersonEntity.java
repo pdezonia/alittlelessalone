@@ -32,7 +32,6 @@ public class SimpersonEntity extends Animal {
     }
 
     protected void registerGoals() {
-        // Don't be stupid goals
         this.goalSelector.addGoal(0, new FloatGoal(this));
 
         // "Instinctive" goals

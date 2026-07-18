@@ -1,5 +1,6 @@
 package net.pazooni.LessLonely;
 
+import net.pazooni.LessLonely.block.ModBlockEntities;
 import net.pazooni.LessLonely.block.ModBlocks;
 import net.pazooni.LessLonely.entity.ModEntities;
 import net.pazooni.LessLonely.item.ModCreativeModeTabs;
@@ -44,6 +45,8 @@ public class LessLonely {
         ModBlocks.register(modEventBus);
 
         ModEntities.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
