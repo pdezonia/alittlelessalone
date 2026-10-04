@@ -1,8 +1,6 @@
 package net.pazooni.LessLonely.block.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,9 +16,10 @@ public class TownBlockEntity extends BlockEntity {
 
     public int countAnimals(BlockPos pos, Class<? extends Animal> entityClass, int searchRad) {
         /*
-            pos is the world coord that is the center of the search cube
-            entityClass is the java class for the entity to count
-            searchRad is half the side length of the search cube
+            pos          the world coord that is the center of the search cube
+            entityClass  the java class for the entity to count
+            searchRad    half the side length of the search cube
+                this method kind of just exists to prove that the rest of what town block is supposed to do is possible
          */
         assert this.level != null;
         List<? extends Animal> list = this.level.getEntitiesOfClass(entityClass, new AABB(pos).inflate((double) searchRad));

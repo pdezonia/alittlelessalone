@@ -1,6 +1,7 @@
 package net.pazooni.LessLonely.entity.custom;
 
 import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -23,6 +25,8 @@ import org.jetbrains.annotations.Nullable;
 public class SimpersonEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    public BlockPos homeBedBlockPos = null;
 
     private static final EntityDataAccessor<Integer> VARIANT =
             SynchedEntityData.defineId(SimpersonEntity.class, EntityDataSerializers.INT);
@@ -36,7 +40,7 @@ public class SimpersonEntity extends Animal {
 
         // "Instinctive" goals
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25));
-        this.goalSelector.addGoal(2, new ClaimBedGoal(this, 1.0));
+        this.goalSelector.addGoal(2, new ClaimBedGoal(this, 1.0, DyeColor.LIME));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.1, stack -> stack.is(Items.BAKED_POTATO), false));
 
