@@ -15,12 +15,16 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, LessLonely.MOD_ID);
 
-    public static final Supplier<CreativeModeTab> SIMPEOPLE_ITEMS_TAB = CREATIVE_MODE_TAB.register("simpeople_items_tab",
+    public static final Supplier<CreativeModeTab> SIMPEOPLE_ITEMS_TAB = CREATIVE_MODE_TAB.register(
+            "simpeople_items_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SIMPERSON_SPAWN_EGG.get()))
                     .title(Component.translatable("creativetab.lesslonely.simpeople_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.SIMPERSON_SPAWN_EGG);
                         output.accept(ModBlocks.TOWN_BLOCK);
+                        output.accept(ModItems.BETTER_VILLAGER_SPAWN_EGG);
+                        // Pathing blocks
+                        output.accept(ModBlocks.EXPRESS_PATH_BLOCK);
                     }).build());
 
     public static void register(IEventBus eventBus) {

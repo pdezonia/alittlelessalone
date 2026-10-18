@@ -20,7 +20,15 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput,
+                existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput,
+                existingFileHelper));
+        // Will need:
+        // Tag provider to enable breaking with pickaxe and zero path cost
+        // Loot table for block breaking and refunds
+        // Maybe item tag provider if we want to make a fuel or magic block
+        // situation, it is also likely the best way to make an item that
+        // doesn't get consumed in crafting
     }
 }

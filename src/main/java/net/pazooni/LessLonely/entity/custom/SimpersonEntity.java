@@ -12,6 +12,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
@@ -40,15 +41,21 @@ public class SimpersonEntity extends Animal {
 
         // "Instinctive" goals
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25));
-        this.goalSelector.addGoal(2, new ClaimBedGoal(this, 1.0, DyeColor.LIME));
+        this.goalSelector.addGoal(2, new ClaimBedGoal(
+                this,
+                1.0,
+                DyeColor.LIME));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0));
-        this.goalSelector.addGoal(4, new TemptGoal(this, 1.1, stack -> stack.is(Items.BAKED_POTATO), false));
+        this.goalSelector.addGoal(4, new TemptGoal(this, 1.1,
+                stack -> stack.is(Items.BAKED_POTATO), false));
 
         // Movement goals
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(
+                this, 1.0));
 
         // Looking at and looking lifelike goals
-        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0f));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(
+                this, Player.class, 6.0f));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
     }
 
@@ -66,7 +73,8 @@ public class SimpersonEntity extends Animal {
 
     @Nullable
     @Override
-    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
+    public AgeableMob getBreedOffspring(ServerLevel serverLevel,
+                                        AgeableMob ageableMob) {
         return null;
     }
 
@@ -77,6 +85,11 @@ public class SimpersonEntity extends Animal {
         }else{
             --this.idleAnimationTimeout;
         }
+    }
+
+    @Override
+    protected PathNavigation createNavigation(Level level) {
+        return super.createNavigation(level);
     }
 
     @Override
@@ -119,8 +132,12 @@ public class SimpersonEntity extends Animal {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
-        SimpersonVariant variant = Util.getRandom(SimpersonVariant.values(), this.random);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,
+                                        DifficultyInstance difficulty,
+                                        MobSpawnType spawnType,
+                                        @Nullable SpawnGroupData spawnGroupData) {
+        SimpersonVariant variant = Util.getRandom(
+                SimpersonVariant.values(), this.random);
         this.setVariant(variant);
 
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);

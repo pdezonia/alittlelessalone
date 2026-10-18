@@ -7,6 +7,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.pazooni.LessLonely.LessLonely;
 import net.pazooni.LessLonely.entity.ModEntities;
 import net.pazooni.LessLonely.entity.client.SimpersonModel;
+import net.pazooni.LessLonely.entity.custom.BetterVillager;
 import net.pazooni.LessLonely.entity.custom.SimpersonEntity;
 
 @EventBusSubscriber(modid = LessLonely.MOD_ID)
@@ -19,5 +20,6 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.SIMPERSON.get(), SimpersonEntity.createAttributes().build());
+        event.put(ModEntities.BETTER_VILLAGER.get(), BetterVillager.createAttributes().build());
     }
 }
