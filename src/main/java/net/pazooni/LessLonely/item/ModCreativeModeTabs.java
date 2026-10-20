@@ -25,6 +25,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BETTER_VILLAGER_SPAWN_EGG);
                         // Pathing blocks
                         output.accept(ModBlocks.EXPRESS_PATH_BLOCK);
+                        output.accept(ModBlocks.EXPRESS_INTERSECTION_BLOCK);
+                        output.accept(ModBlocks.EXPRESS_END_BLOCK);
+                        output.accept(ModBlocks.EXPRESS_STAIR_BLOCK);
                     }).build());
 
     public static void register(IEventBus eventBus) {

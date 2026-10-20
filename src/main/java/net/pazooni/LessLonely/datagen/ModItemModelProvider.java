@@ -15,5 +15,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         withExistingParent(ModItems.SIMPERSON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.BETTER_VILLAGER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        // HAH! claude was WRONG! it said "block/express_stair_block" which is WRONG
+        withExistingParent("express_stair_block", modLoc("item/express_stair_block"));
     }
 }

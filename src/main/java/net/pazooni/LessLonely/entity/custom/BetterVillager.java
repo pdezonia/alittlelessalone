@@ -36,7 +36,7 @@ public class BetterVillager extends Villager {
         return Villager.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, 10d)
                 .add(Attributes.MOVEMENT_SPEED, 0.25d)
-                .add(Attributes.FOLLOW_RANGE, 25d);
+                .add(Attributes.FOLLOW_RANGE, 25d); // this
     }
 
     private void registerBrainGoals(Brain<Villager> villagerBrain) {

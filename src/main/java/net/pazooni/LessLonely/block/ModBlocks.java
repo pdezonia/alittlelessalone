@@ -1,11 +1,13 @@
 package net.pazooni.LessLonely.block;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.pazooni.LessLonely.LessLonely;
@@ -24,14 +26,6 @@ public class ModBlocks {
             () -> new TownBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable()));
 
     // Begin pathfinding blocks
-//    public static final  DeferredBlock<Block> EXPRESS_PATH_BLOCK = registerBlock(
-//            "express_path_block", () -> new Block(BlockBehaviour.Properties.of()
-//                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-//    public static final DeferredBlock<RotatedPillarBlock> EXPRESS_PATH_BLOCK = registerBlock(
-//            "express_path_block", () -> new RotatedPillarBlock(
-//                    BlockBehaviour.Properties.of().strength(4f)
-//                            .sound(SoundType.STONE)
-//                            .requiresCorrectToolForDrops()));
     public static final DeferredBlock<SixSidedBlock> EXPRESS_PATH_BLOCK = BLOCKS.register(
             "express_path_block",
             () -> new SixSidedBlock(BlockBehaviour.Properties.of()
@@ -39,6 +33,35 @@ public class ModBlocks {
                     .strength(4f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE)));
+    public static final DeferredBlock<SixSidedBlock> EXPRESS_INTERSECTION_BLOCK = BLOCKS.register(
+            "express_intersection_block",
+            () -> new SixSidedBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+    public static final DeferredBlock<SixSidedBlock> EXPRESS_END_BLOCK = BLOCKS.register(
+            "express_end_block",
+            () -> new SixSidedBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+    // Dummy express block for the stair and slab blocks to steal
+    public static final DeferredBlock<SixSidedBlock> EXPRESS_DUMMY_BLOCK = BLOCKS.register(
+            "express_dummy_block",
+            () -> new SixSidedBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+
+//    public static final DeferredBlock<Block> EXPRESS_DUMMY_BLOCK = BLOCKS.registerSimpleBlock(
+//            "express_dummy_block", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE));
+    public static final DeferredBlock<StairBlock> EXPRESS_STAIR_BLOCK = registerBlock(
+            "express_stair_block",
+            () -> new StairBlock(ModBlocks.EXPRESS_DUMMY_BLOCK.get().defaultBlockState(),
+                    BlockBehaviour.Properties.ofFullCopy(EXPRESS_DUMMY_BLOCK.get())));
 
     // End of Mod Block declaration
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

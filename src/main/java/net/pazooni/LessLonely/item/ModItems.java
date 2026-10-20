@@ -24,6 +24,10 @@ public class ModItems {
     // Begin express path related items
     public static final DeferredItem<BlockItem> EXPRESS_PATH_BLOCK_ITEM =
             ITEMS.registerSimpleBlockItem(ModBlocks.EXPRESS_PATH_BLOCK);
+    public static final DeferredItem<BlockItem> EXPRESS_INTERSECTION_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem(ModBlocks.EXPRESS_INTERSECTION_BLOCK);
+    public static final DeferredItem<BlockItem> EXPRESS_END_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem(ModBlocks.EXPRESS_END_BLOCK);
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
