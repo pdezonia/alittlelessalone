@@ -42,7 +42,10 @@ public class VillagerPathFinder extends PathFinder {
         Map<Target, BlockPos> targets = targetPositions.stream().collect(Collectors.toMap(
                 pos -> evaluator.getTarget(pos.getX(), pos.getY(), pos.getZ()),
                 Function.identity()));
-        return super.findPath(region, mob, targetPositions, maxRange, accuracy, searchDepthMultiplier);
+
+        Path path = search(start, targets, maxRange, accuracy, searchDepthMultiplier    );
+        evaluator.done();
+        return path;
     }
 
     @Nullable

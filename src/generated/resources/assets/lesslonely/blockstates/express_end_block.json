@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "lesslonely:block/express_end_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "lesslonely:block/express_end_block"
+    },
+    "facing=south": {
+      "model": "lesslonely:block/express_end_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "lesslonely:block/express_end_block",
+      "y": 270
+    }
+  }
+}

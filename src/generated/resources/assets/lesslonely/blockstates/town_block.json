@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "lesslonely:block/town_block"
+    }
+  }
+}

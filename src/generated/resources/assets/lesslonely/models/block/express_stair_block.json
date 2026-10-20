@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "lesslonely:block/express_dummy_block_bottom",
+    "side": "lesslonely:block/express_dummy_block_side",
+    "top": "lesslonely:block/express_dummy_block_top"
+  }
+}

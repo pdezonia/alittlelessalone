@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "lesslonely:block/express_dummy_block_top",
+    "east": "lesslonely:block/express_dummy_block_side",
+    "north": "lesslonely:block/express_dummy_block_side",
+    "particle": "lesslonely:block/express_dummy_block_top",
+    "south": "lesslonely:block/express_dummy_block_side",
+    "up": "lesslonely:block/express_dummy_block_bottom",
+    "west": "lesslonely:block/express_dummy_block_side"
+  }
+}
