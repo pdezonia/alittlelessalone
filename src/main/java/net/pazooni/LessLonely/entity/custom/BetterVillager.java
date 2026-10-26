@@ -34,8 +34,8 @@ public class BetterVillager extends Villager {
 
     public static AttributeSupplier.@NotNull Builder createAttributes() {
         return Villager.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 10d)
-                .add(Attributes.MOVEMENT_SPEED, 0.25d)
+                .add(Attributes.MAX_HEALTH, 20d)
+                .add(Attributes.MOVEMENT_SPEED, 0.6d)
                 .add(Attributes.FOLLOW_RANGE, 25d); // this
     }
 

@@ -12,6 +12,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.pazooni.LessLonely.entity.ModEntities;
+import net.pazooni.LessLonely.entity.client.BetterVillagerRenderer;
 import net.pazooni.LessLonely.entity.client.SimpersonRenderer;
 
 @Mod(value = LessLonely.MOD_ID, dist = Dist.CLIENT)
@@ -27,6 +28,6 @@ public class LessLonelyClient {
     }
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers e) {
-        e.registerEntityRenderer(ModEntities.BETTER_VILLAGER.get(), VillagerRenderer::new);
+        e.registerEntityRenderer(ModEntities.BETTER_VILLAGER.get(), BetterVillagerRenderer::new);
     }
 }
